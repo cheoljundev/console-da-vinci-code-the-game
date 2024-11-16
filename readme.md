@@ -29,21 +29,71 @@ classDiagram
     class GameService {
         -client : GameClient
         -playMode : PlayMode
+        -user : User
         +start() void
         -chooseMenu() void
     }
 
     class PlayMode {
         <<interface>>
-        -games : int
-        +start() void
+        +start(User user) void
         +setVictoryRule() void
     }
     
     class SinglePlayMode {
-        -level : Level
-        +start() void
+        -games : int
+        -tiles : Tile[]
+        -pc : User
+        -turn : User
+        +start(User user) void
         +chooseLevel() void
+        +shuffleTile() void
+        +changeTurn() User
+        +checkTile(TIle selectedTile) boolean
+        +endGame() void
+    }
+    
+    class Tile {
+        <<enumeration>>
+        -color : Color
+        -number : Integer
+        +BLACK_0
+        +BLACK_1
+        +BLACK_2
+        +BLACK_3
+        +BLACK_4
+        +BLACK_5
+        +BLACK_6
+        +BLACK_7
+        +BLACK_8
+        +BLACK_9
+        +BLACK_10
+        +BLACK_11
+        +BLACK_JOKER
+        +WHITE_0
+        +WHITE_1
+        +WHITE_2
+        +WHITE_3
+        +WHITE_4
+        +WHITE_5
+        +WHITE_6
+        +WHITE_7
+        +WHITE_8
+        +WHITE_9
+        +WHITE_10
+        +WHITE_11
+        +WHITE_JOKER
+        +getColor() Color
+        +getNumber() Integer
+        +compareNumber(Tile other) int
+    }
+    
+    class Color {
+        <<enumeration>>
+        -order : int
+        +WHITE,
+        +BLACK
+        +getOrder() int
     }
     
     class Level {
@@ -52,13 +102,46 @@ classDiagram
         +NORMAL
         +HARD
         --
-        -rate : int
+        -rightRate : double
+        +getRightRate() double
+    }
+    
+    class User {
+        <<interface>>
+        +getName() String
+        +chooseTile() Tile
+        +setTile() Tile[]
+        +guessTile() Tile
+    }
+    
+    class LocalUser {
+      - private name : String
+      <<constructor>> LocalUser(String name)
+      +getName() String
+      +chooseTile() Tile
+      +setTile() Tile[]
+      +guessTile() Tile
+    }
+    
+    class PcUser {
+      -level : Level
+      <<constructor>> PcUser(Level level)
+      +getName() String
+      +chooseTile() Tile
+      +setTile() Tile[]
+      +guessTile() Tile
     }
 
     GameService <-- StartMain : Ref
     GameClient <-- GameService : Ref
     PlayMode <-- GameService : Ref
-    PlayMode <|-- SinglePlayMode : Implement
+    User <|-- LocalUser : Imple
+    User <|-- PcUser : Imple
+    User <-- GameService : Ref
+    User <-- SinglePlayMode : Ref
+    SinglePlayMode <|-- Tile : Ref
+    Color <|-- Tile : Ref
+    PlayMode <|-- SinglePlayMode : Impl
     Level <-- SinglePlayMode
 ```
 
