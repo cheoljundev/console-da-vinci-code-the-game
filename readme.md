@@ -46,6 +46,7 @@ classDiagram
         -pc : User
         -turn : User
         +start(User user) void
+        +setVictoryRule() void
         +setLevel(Level level) Level
         +chooseLevel() void
         +shuffleTile() void
