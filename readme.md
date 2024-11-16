@@ -132,6 +132,28 @@ classDiagram
       +setTile() Tile[]
       +guessTile() Tile
     }
+    
+    class GameRecode {
+        -gameNo : int
+        -winner : User
+        -loser : User
+        -gameDate : LocalDateTime
+        -level : Level
+        <<constructor>> GameRecode(int gameNo, User winner, User loser, LocalDateTime gameDate, Level level)
+        +getGameNo() void
+        +getWinner() User
+        +getLoser() User
+        +getGameDate() LocalDateTIme
+        +getLevel() Level
+    }
+    
+    class GameRecordRepository {
+        -recodes : GameRecode[]
+        +getRecordsSortedByDate(User user) GameRecode[]
+        +getRecordsSortedByWin(User user) GameRecode[]
+        +getRecordsSortedByLose(User user) GameRecode[]
+        +getRecordsSortedByLevel(User user) GameRecode[]
+    }
 
     GameService <-- StartMain : Ref
     GameClient <-- GameService : Ref
@@ -145,6 +167,7 @@ classDiagram
     SinglePlayMode <|-- Tile : Ref
     Color <|-- Tile : Ref
     PlayMode <|-- SinglePlayMode : Impl
+    GameRecode <|-- GameRecordRepository
 ```
 
 ---
