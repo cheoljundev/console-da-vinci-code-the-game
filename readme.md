@@ -46,6 +46,7 @@ classDiagram
         -pc : User
         -turn : User
         +start(User user) void
+        +setLevel(Level level) Level
         +chooseLevel() void
         +shuffleTile() void
         +changeTurn() User
@@ -136,6 +137,8 @@ classDiagram
     PlayMode <-- GameService : Ref
     User <|-- LocalUser : Impl
     User <|-- PcUser : Impl
+    Level <-- PcUser : Ref
+    Level <-- SinglePlayMode : Ref
     User <-- GameService : Ref
     User <-- SinglePlayMode : Ref
     SinglePlayMode <|-- Tile : Ref
