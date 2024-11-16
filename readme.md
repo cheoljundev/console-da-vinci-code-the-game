@@ -98,11 +98,10 @@ classDiagram
     
     class Level {
         <<enumeration>>
+        -rightRate : double
         +BASIC
         +NORMAL
         +HARD
-        --
-        -rightRate : double
         +getRightRate() double
     }
     
@@ -135,14 +134,13 @@ classDiagram
     GameService <-- StartMain : Ref
     GameClient <-- GameService : Ref
     PlayMode <-- GameService : Ref
-    User <|-- LocalUser : Imple
-    User <|-- PcUser : Imple
+    User <|-- LocalUser : Impl
+    User <|-- PcUser : Impl
     User <-- GameService : Ref
     User <-- SinglePlayMode : Ref
     SinglePlayMode <|-- Tile : Ref
     Color <|-- Tile : Ref
     PlayMode <|-- SinglePlayMode : Impl
-    Level <-- SinglePlayMode
 ```
 
 ---
