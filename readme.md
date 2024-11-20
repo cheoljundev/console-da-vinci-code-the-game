@@ -145,6 +145,7 @@ classDiagram
         +getLoser() User
         +getGameDate() LocalDateTIme
         +getLevel() Level
+        +toString() String
     }
     
     class GameRecordRepository {
