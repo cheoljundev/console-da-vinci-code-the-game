@@ -1,5 +1,6 @@
 package service;
 
+import client.GameClient;
 import domain.user.User;
 
 public class GameService {

@@ -1,4 +1,4 @@
-package service;
+package client;
 
 import domain.user.PcUser;
 import domain.user.User;

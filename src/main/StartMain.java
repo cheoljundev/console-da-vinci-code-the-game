@@ -1,6 +1,6 @@
 package main;
 
-import service.GameClient;
+import client.GameClient;
 import service.GameService;
 
 public class StartMain {
