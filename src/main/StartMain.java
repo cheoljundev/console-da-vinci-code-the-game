@@ -1,6 +1,5 @@
 package main;
 
-import domain.user.User;
 import service.GameClient;
 import service.GameService;
 
