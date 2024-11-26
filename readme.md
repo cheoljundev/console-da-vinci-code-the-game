@@ -23,6 +23,7 @@ classDiagram
     }
 
     class GameClient {
+        -user : User
         +start() void
     }
     
