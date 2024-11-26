@@ -11,7 +11,7 @@ public class GameClient {
 
     public GameClient() {
         System.out.print("유저 네임을 입력하세요 : ");
-        User user = new PcUser(sc.nextLine());
+        this.user = new PcUser(sc.nextLine());
     }
 
     public void start() {
