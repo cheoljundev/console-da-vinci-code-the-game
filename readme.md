@@ -57,46 +57,20 @@ classDiagram
     }
     
     class Tile {
-        <<enumeration>>
         -color : Color
-        -number : Integer
-        +BLACK_0
-        +BLACK_1
-        +BLACK_2
-        +BLACK_3
-        +BLACK_4
-        +BLACK_5
-        +BLACK_6
-        +BLACK_7
-        +BLACK_8
-        +BLACK_9
-        +BLACK_10
-        +BLACK_11
-        +BLACK_JOKER
-        +WHITE_0
-        +WHITE_1
-        +WHITE_2
-        +WHITE_3
-        +WHITE_4
-        +WHITE_5
-        +WHITE_6
-        +WHITE_7
-        +WHITE_8
-        +WHITE_9
-        +WHITE_10
-        +WHITE_11
-        +WHITE_JOKER
+        -number : int
         +getColor() Color
-        +getNumber() Integer
-        +compareNumber(Tile other) int
+        +getNumber() int
+        +compareTo(Tile other) int
+        +toString() void
     }
     
     class Color {
         <<enumeration>>
-        -order : int
+        -icon : String
         +WHITE,
         +BLACK
-        +getOrder() int
+        +getIcon() String
     }
     
     class Level {
