@@ -1,6 +1,6 @@
 package client;
 
-import domain.game.Single;
+import domain.menu.game.Single;
 import domain.menu.Menu;
 import domain.user.PcUser;
 import domain.user.User;

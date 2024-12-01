@@ -1,4 +1,4 @@
-package domain.game;
+package domain.menu.game;
 
 import domain.menu.Menu;
 
