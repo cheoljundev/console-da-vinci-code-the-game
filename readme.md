@@ -136,13 +136,13 @@ classDiagram
     User <|-- PcUser : Impl
     Level <-- PcUser : Ref
     Level <-- Single : Ref
-    User <-- GameService : Ref
     User <-- Single : Ref
     Single <|-- Tile : Ref
     Color <|-- Tile : Ref
     PlayMode <|-- Single : Impl
     GameRecode <|-- GameRecordRepository
     Menu <|-- Single : Impl
+    Menu <|-- GameClient : Ref
 ```
 
 ---
