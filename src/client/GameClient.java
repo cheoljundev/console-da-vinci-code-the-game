@@ -7,11 +7,11 @@ import java.util.Scanner;
 
 public class GameClient {
     private User user;
-    Scanner sc = new Scanner(System.in);
 
     public GameClient() {
+        Scanner input = new Scanner(System.in);
         System.out.print("유저 네임을 입력하세요 : ");
-        this.user = new PcUser(sc.nextLine());
+        this.user = new PcUser(input.nextLine());
     }
 
     public void start() {
