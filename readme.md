@@ -23,25 +23,25 @@ classDiagram
     }
 
     class GameClient {
+        -input : Scanner
         -user : User
+        -menu : Menu
+        +start() void
+        -selectMenu() void
+    }
+    
+    class Menu {
+        <<interface>>
         +start() void
     }
     
-    class GameService {
-        -client : GameClient
-        -playMode : PlayMode
-        -user : User
-        +start() void
-        -chooseMenu() void
-    }
-
     class PlayMode {
         <<interface>>
         +start(User user) void
         +setVictoryRule() void
     }
     
-    class SinglePlayMode {
+    class Single {
         -games : int
         -tiles : Tile[]
         -pc : User
@@ -131,19 +131,18 @@ classDiagram
         +getRecordsSortedByLevel(User user) GameRecode[]
     }
 
-    GameService <-- StartMain : Ref
-    GameClient <-- GameService : Ref
-    PlayMode <-- GameService : Ref
+    GameClient <-- StartMain : Ref
     User <|-- LocalUser : Impl
     User <|-- PcUser : Impl
     Level <-- PcUser : Ref
-    Level <-- SinglePlayMode : Ref
+    Level <-- Single : Ref
     User <-- GameService : Ref
-    User <-- SinglePlayMode : Ref
-    SinglePlayMode <|-- Tile : Ref
+    User <-- Single : Ref
+    Single <|-- Tile : Ref
     Color <|-- Tile : Ref
-    PlayMode <|-- SinglePlayMode : Impl
+    PlayMode <|-- Single : Impl
     GameRecode <|-- GameRecordRepository
+    Menu <|-- Single : Impl
 ```
 
 ---
