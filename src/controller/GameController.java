@@ -10,8 +10,8 @@ public class GameController {
     private final GameClient client;
     private User user;
 
-    public GameController(GameClient client) {
-        this.client = client;
+    public GameController() {
+        client = new GameClient();
     }
 
     public void start() {
