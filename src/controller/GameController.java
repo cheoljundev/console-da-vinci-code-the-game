@@ -2,7 +2,7 @@ package controller;
 
 import client.GameClient;
 import domain.menu.Menu;
-import domain.menu.game.Single;
+import domain.menu.game.mode.Single;
 import domain.user.PcUser;
 import domain.user.User;
 

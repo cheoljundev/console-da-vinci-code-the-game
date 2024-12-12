@@ -1,4 +1,4 @@
-package domain.menu.game;
+package domain.menu.game.mode;
 
 public interface PlayMode {
     void start();
