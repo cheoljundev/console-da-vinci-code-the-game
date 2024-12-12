@@ -1,7 +1,8 @@
 package domain.menu.game.tile;
 
 public enum Color {
-    WHITE("□"), BLACK("■");
+    BLACK("■"),
+    WHITE("□");
 
     private String icon;
 
