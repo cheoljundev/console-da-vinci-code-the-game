@@ -2,7 +2,7 @@ package domain.menu.game.tile;
 
 public class Tile implements Comparable<Tile>{
     private Color color;
-    private int number;
+    private Integer number;
 
     public Tile(Color color, int number) {
         this.color = color;
@@ -19,8 +19,12 @@ public class Tile implements Comparable<Tile>{
 
     @Override
     public int compareTo(Tile another) {
-        //todo : 비교 구현 필요. 숫자가 같으면 Black이 작은거임.
-        return 0;
+        int numberComparison = number.compareTo(another.number);
+        if (numberComparison != 0) { // compareTo에서 반환값 0은 동등을 의미.
+            return numberComparison;
+        }
+        // 숫자가 같으면 color 비교
+        return color.compareTo(another.color);
     }
 
     @Override
