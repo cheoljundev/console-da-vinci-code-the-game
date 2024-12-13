@@ -1,6 +1,8 @@
 package domain.menu.game.mode;
 
-public interface PlayMode {
+import domain.menu.Menu;
+
+public interface PlayMode extends Menu {
     void start();
     void setVictoryRule();
 }

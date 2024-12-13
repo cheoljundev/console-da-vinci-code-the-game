@@ -3,6 +3,7 @@ package controller;
 import client.GameClient;
 import domain.menu.Menu;
 import domain.menu.game.mode.Single;
+import domain.menu.recode.GameRecodeService;
 import domain.user.PcUser;
 import domain.user.User;
 
@@ -33,6 +34,8 @@ public class GameController {
         Menu menu = null;
         if (menuNumber == 1) {
             menu = new Single();
+        } else if (menuNumber == 2) {
+            menu = new GameRecodeService();
         }
         return menu;
     }

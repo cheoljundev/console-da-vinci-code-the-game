@@ -2,7 +2,7 @@ package domain.menu.game.mode;
 
 import domain.menu.Menu;
 
-public class Single implements PlayMode, Menu {
+public class Single implements PlayMode {
     @Override
     public void start() {
         System.out.println("싱글 모드 시작");

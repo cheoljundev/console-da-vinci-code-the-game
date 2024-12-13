@@ -130,6 +130,15 @@ classDiagram
         +getRecordsSortedByLose(User user) GameRecode[]
         +getRecordsSortedByLevel(User user) GameRecode[]
     }
+    
+    class GameRecodeService {
+        -repository : GameRecordRepository
+        +start() void
+        +getRecordsSortedByDate(User user) GameRecode[]
+        +getRecordsSortedByWin(User user) GameRecode[]
+        +getRecordsSortedByLose(User user) GameRecode[]
+        +getRecordsSortedByLevel(User user) GameRecode[]
+    }
 
     GameClient <-- StartMain : Ref
     User <|-- LocalUser : Impl
@@ -140,8 +149,9 @@ classDiagram
     Single <|-- Tile : Ref
     Color <|-- Tile : Ref
     PlayMode <|-- Single : Impl
-    GameRecode <|-- GameRecordRepository
-    Menu <|-- Single : Impl
+    GameRecode <|-- GameRecordRepository : Ref
+    Menu <|-- PlayMode : Extends
+    Menu <|-- GameRecodeService : Impl
     Menu <|-- GameClient : Ref
 ```
 
